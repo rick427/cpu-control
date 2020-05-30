@@ -70,6 +70,7 @@
 	<script>
 		// const {ipcRenderer} = require('electron');
 		const settingsForm = document.getElementById('settings-form');
+		const nav = document.getElementById('nav');
 
 		// get settings
 		ipcRenderer.on('settings:get', (event, settings) => {
@@ -101,6 +102,11 @@
 
 			setTimeout(() => alert.classList.add('hide'), 3000);
 		}
+
+		// Toggle nav
+		ipcRenderer.on('nav:toggle', () => {
+			nav.classList.toggle('hide');
+		})
 	</script>
   </body>
 </html>
